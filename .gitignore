@@ -1,3 +1,6 @@
+# ignore .ser files
+*.ser
+
 # Compiled class file
 *.class
 
