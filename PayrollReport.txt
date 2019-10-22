@@ -1,0 +1,8 @@
+                                            Payroll Report
+                                            Tax Rate: 20.0%
+Employee            		Hourly  		Hours   		Gross   		Taxed   		Net 
+Name                		Rate    		Worked  		Amount  		Amount  		Amount
+--------------------		--------		--------		--------		--------		--------
+David               		25.00   		15.00   		375.00  		75.00   		300.00
+Allan               		16.00   		20.00   		320.00  		64.00   		256.00
+Laura               		28.00   		19.00   		532.00  		106.40  		425.60
