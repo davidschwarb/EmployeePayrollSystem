@@ -4,7 +4,7 @@
 //     David Schwarb
 //     Lynda Vo
 //     Michael Karbowiack
-//
+//     Spencer Youngblood
 package edu.umsl;
 
 import java.util.Scanner;
