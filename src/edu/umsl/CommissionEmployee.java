@@ -10,5 +10,5 @@ package edu.umsl;
  * @author dsm7n
  */
 public class CommissionEmployee extends Employee{
-    //More coding here
+	
 }

@@ -131,7 +131,7 @@ public class PayrollSystem {
 
         boolean found;
         //int index = -99;
-        if (employees[0].getHours() == -1) {//Kick out of the menu if no employees are defined
+        if (!employees[0].isPopulated()) {//Kick out of the menu if no employees are defined
             System.out.println("No employees have been populated. Press Enter to return to the main menu");
             sc.nextLine();
             return;

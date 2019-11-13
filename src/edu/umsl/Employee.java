@@ -21,6 +21,7 @@ public class Employee implements Serializable {
     private double tax;
     private double net;
     private double netPercent;
+    protected boolean populated = false;
 
     //////////////////////////////////////
     // Employee Defaut Constructor
@@ -121,6 +122,8 @@ public class Employee implements Serializable {
                 this.payRate = 0;
             }
         } while (this.hours == -99 || this.hours < 0);
+
+		populated = true;
     }
 
     //////////////////////////////////////
@@ -205,5 +208,9 @@ public class Employee implements Serializable {
     // Returns: taxRate
     public double getTaxRate() {
         return taxRate;
+    }
+
+    public boolean isPopulated(){
+	    return populated;
     }
 }
