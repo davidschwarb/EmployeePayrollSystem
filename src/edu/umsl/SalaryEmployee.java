@@ -5,6 +5,7 @@
  */
 package edu.umsl;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
@@ -43,12 +44,23 @@ public class SalaryEmployee extends Employee {
 
         biMonthlySal = annualSal / 24;
 
-		populated = true;
+        populated = true;
     }
 
     @Override
     public double getGrossPay() {
         return biMonthlySal;
+    }
+
+    @Override
+    public void showEmployee() {
+        DecimalFormat f = new DecimalFormat("##.00");
+        System.out.println("Employee Name: " + name);
+        System.out.println("Hours Worked: Salaried Employee (N/A)");
+        System.out.println("Gross Pay: " + f.format(getGrossPay()));
+        System.out.println("Tax Amount: " + f.format(getTaxAmount()));
+        System.out.println("Net Pay: " + f.format(getNet()));
+        System.out.println("Net Pay Percent: " + f.format(getNetPercent()));
     }
 
     //Needs work here

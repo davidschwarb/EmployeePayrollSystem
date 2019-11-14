@@ -132,9 +132,9 @@ public class Employee implements Serializable {
         DecimalFormat f = new DecimalFormat("##.00");
         System.out.println("Employee Name: " + name);
         System.out.println("Hours Worked: " + hours);
-        System.out.println("Pay Rate: " + payRate);
+//        System.out.println("Pay Rate: " + payRate);
         System.out.println("Gross Pay: " + f.format(getGrossPay()));
-        System.out.println("Tax Rate: " + taxRate);
+//        System.out.println("Tax Rate: " + taxRate);
         System.out.println("Tax Amount: " + f.format(getTaxAmount()));
         System.out.println("Net Pay: " + f.format(getNet()));
         System.out.println("Net Pay Percent: " + f.format(getNetPercent()));
