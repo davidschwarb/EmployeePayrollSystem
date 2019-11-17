@@ -1,5 +1,6 @@
 package edu.umsl;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
@@ -8,10 +9,10 @@ import java.util.Scanner;
  */
 public class CommissionEmployee extends Employee{
 	//Will need to override getGross and populate employee
-    private double grossPay;
+//    private double grossPay;
     public double CommissionAmount;
     double CommissionRate=0.5;
-    double TotalItems, Price, GrossSales, Commission, payRate;
+    double TotalItems, Price, GrossSales, Commission;
     
    
     @Override
@@ -71,11 +72,11 @@ public class CommissionEmployee extends Employee{
             while (Price <=0);
     
 GrossSales = TotalItems * Price;
-System.out.println("Your gross sales are: " + GrossSales);
+//System.out.println("Your gross sales are: " + GrossSales);
 
 
 Commission = CommissionRate * GrossSales;
-System.out.println("The Commision is: "+ Commission);
+//System.out.println("The Commision is: "+ Commission);
 
     }
     
@@ -83,8 +84,35 @@ System.out.println("The Commision is: "+ Commission);
     @Override
     public double getGrossPay()
     {
-       return grossPay + Commission;
+        double grossPay;
+        double overtime;
+        if (hours > 40) {
+            grossPay = 40 * payRate;
+
+            overtime = (hours - 40) * (1.5 * payRate);
+
+            grossPay += overtime;
+        } else {
+            grossPay = hours * payRate;
+        }
+        return grossPay + Commission;
     }
+
+	@Override
+	public void showEmployee(){
+        DecimalFormat f = new DecimalFormat("##.00");
+        System.out.println("Employee Name: " + name);
+        System.out.println("Hours Worked: " + hours);
+        System.out.println("Pay Rate: " + payRate);
+		System.out.println("Items Sold: " + TotalItems);
+		System.out.println("PPI: " + Price);
+		System.out.println("Comission Earned: "+ getCommissionAmount());
+        System.out.println("Gross Pay: " + f.format(getGrossPay()));
+        System.out.println("Tax Rate: " + taxRate);
+        System.out.println("Tax Amount: " + f.format(getTaxAmount()));
+        System.out.println("Net Pay: " + f.format(getNet()));
+        System.out.println("Net Pay Percent: " + f.format(getNetPercent()));
+	} 
     
     
     public double getCommissionAmount()

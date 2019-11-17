@@ -16,8 +16,8 @@ public class Employee implements Serializable {
     protected String name;
 
     protected double hours;
-    private double payRate;
-    private double taxRate;
+    protected double payRate;
+    protected double taxRate;
     private double tax;
     private double net;
     private double netPercent;
