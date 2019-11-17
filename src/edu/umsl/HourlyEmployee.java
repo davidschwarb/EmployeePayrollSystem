@@ -10,5 +10,13 @@ package edu.umsl;
  * @author dsm7n
  */
 public class HourlyEmployee extends Employee {
-    //need more text here
+
+	public HourlyEmployee() {
+		objType = 0;
+	}
+	
+	@Override
+    public double getCommissionAmount(){
+		return 0;
+	}
 }
