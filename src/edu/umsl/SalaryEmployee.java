@@ -14,6 +14,10 @@ import java.util.Scanner;
  */
 public class SalaryEmployee extends Employee {
 
+	public SalaryEmployee() {
+		objType = 1;
+	}
+
     double annualSal;
     double biMonthlySal;
 //    private String name;
@@ -63,5 +67,8 @@ public class SalaryEmployee extends Employee {
         System.out.println("Net Pay Percent: " + f.format(getNetPercent()));
     }
 
-    //Needs work here
+	@Override
+    public double getCommissionAmount(){
+		return 0;
+	}
 }

@@ -190,25 +190,36 @@ public class PayrollSystem {
     public void saveEmployeesToFile() {
         DecimalFormat f = new DecimalFormat("##.00");
         try (FileWriter fw = new FileWriter("PayrollReport.txt")) {
-            fw.write("                                            Payroll Report\n");
-            fw.write("                                            Tax Rate: " + (employees[0].getTaxRate() * 100) + "%\n");
-            fw.write("Employee            \t\tHourly  "
+            fw.write("                                            "
+				+ "                Payroll Report\n");
+            fw.write("                                            "
+				+ "                Tax Rate: " + (employees[0].getTaxRate() * 100) + "%\n");
+            fw.write("Employee            \t\tEmployment\t\tHourly  "
                     + "\t\tHours   \t\tCommission\t\tGross   \t\tTaxed   \t\tNet \n"
-                    + "Name                \t\tRate    \t\tWorked  \t\tEarned  \t\tAmount  \t\tAmount  \t\tAmount\n"
-                    + "--------------------\t\t--------\t\t--------\t\t--------\t\t--------\t\t--------\t\t--------\n");
+                    + "Name                \t\tType    \t\tRate    \t\tWorked  \t\tEarned  \t\tAmount  \t\tAmount  \t\tAmount\n"
+                    + "--------------------\t\t----------\t\t--------\t\t--------\t\t--------\t\t--------\t\t--------\t\t--------\n");
 
             int wordLen, fieldLen;
             for (int i = 0; i < employees.length; i++) {
                 wordLen = employees[i].getName().length();
                 fieldLen = 20;
-                fw.write(employees[i].getName());//,employees[i].getHours());//,employees[i].getPayRate(),employees[i].getGrossPay(), employees[i].getNet());
+                fw.write(employees[i].getName());
                 for (int j = 0; j < fieldLen - wordLen; j++) {
                     fw.write(" ");
                 }
                 fw.write("\t\t");
+				if (employees[i].getObjType() == 0)
+					fw.write("Hourly    ");
+				else if(employees[i].getObjType() == 1)
+					fw.write("Salary    ");
+				else if(employees[i].getObjType() == 2)
+					fw.write("Commission");
+				else
+					fw.write("        ");
+				fw.write("\t\t");
 
                 fieldLen = 8;
-                if (employees[i].getHours() == -1) {
+                if (employees[i].getObjType() == 1) {
                     wordLen = 3;
                     fw.write("N/A");
                 } else {
@@ -220,9 +231,28 @@ public class PayrollSystem {
                 }
                 fw.write("\t\t");
 
-                wordLen = String.valueOf(f.format(employees[i].getHours())).length();
                 fieldLen = 8;
-                fw.write(String.valueOf(f.format(employees[i].getHours())));
+				if (employees[i].getObjType() == 1) {
+					wordLen = 3;
+					fw.write("N/A");
+				} else {
+					wordLen = String.valueOf(f.format(employees[i].getHours())).length();
+					fw.write(String.valueOf(f.format(employees[i].getHours())));
+				}
+                for (int j = 0; j < fieldLen - wordLen; j++) {
+                    fw.write(" ");
+                }
+                fw.write("\t\t");
+
+
+                fieldLen = 8;
+				if (employees[i].getObjType() != 2) {
+					wordLen = 3;
+					fw.write("N/A");
+				} else {
+					wordLen = String.valueOf(f.format(employees[i].getCommissionAmount())).length();
+					fw.write(String.valueOf(f.format(employees[i].getCommissionAmount())));
+				}
                 for (int j = 0; j < fieldLen - wordLen; j++) {
                     fw.write(" ");
                 }

@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.io.Serializable;
 import java.text.DecimalFormat;
 
-public class Employee implements Serializable {
+public abstract class Employee implements Serializable {
 
     protected String name;
 
@@ -22,6 +22,7 @@ public class Employee implements Serializable {
     private double net;
     private double netPercent;
     protected boolean populated = false;
+	protected int objType;         //0 - hourly ; 1 - salary; 2 - comission
 
     //////////////////////////////////////
     // Employee Defaut Constructor
@@ -119,7 +120,7 @@ public class Employee implements Serializable {
                 this.payRate = Double.parseDouble(sc.nextLine());
             } catch (NumberFormatException exc) {
                 System.out.println("Invalid Input");
-                this.payRate = 0;
+                this.payRate = -99;
             }
         } while (this.hours == -99 || this.hours < 0);
 
@@ -213,4 +214,10 @@ public class Employee implements Serializable {
     public boolean isPopulated(){
 	    return populated;
     }
+
+	public int getObjType(){
+		return objType;
+	}
+
+    public abstract double getCommissionAmount();
 }

@@ -8,6 +8,11 @@ import java.util.Scanner;
  * @author dsm7n
  */
 public class CommissionEmployee extends Employee{
+
+	public CommissionEmployee() {
+		objType = 2;
+	}
+	
 	//Will need to override getGross and populate employee
 //    private double grossPay;
     public double CommissionAmount;
