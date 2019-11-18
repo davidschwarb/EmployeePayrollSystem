@@ -1,8 +1,8 @@
-                                            Payroll Report
-                                            Tax Rate: 20.0%
-Employee            		Hourly  		Hours   		Gross   		Taxed   		Net 
-Name                		Rate    		Worked  		Amount  		Amount  		Amount
---------------------		--------		--------		--------		--------		--------
-David               		.00     		-1.00   		2083.33 		416.67  		1666.67
-Dude                		.00     		-1.00   		4166.67 		833.33  		3333.33
-David               		15.00   		10.00   		150.00  		30.00   		120.00
+                                                            Payroll Report
+                                                            Tax Rate: 20.0%
+Employee            		Employment		Hourly  		Hours   		Commission		Gross   		Taxed   		Net 
+Name                		Type    		Rate    		Worked  		Earned  		Amount  		Amount  		Amount
+--------------------		----------		--------		--------		--------		--------		--------		--------
+David               		Hourly    		   20.00		   15.00		     N/A		  300.00		   60.00		  240.00
+Mike                		Salary    		     N/A		     N/A		     N/A		 2083.33		  416.67		 1666.67
+Lynda               		Commission		   15.00		   50.00		  150.00		  975.00		  195.00		  780.00
