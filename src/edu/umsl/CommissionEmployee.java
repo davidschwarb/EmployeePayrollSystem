@@ -52,7 +52,7 @@ public class CommissionEmployee extends Employee{
         do {
             try 
                 {
-                    System.out.println("How many items did you sell ");
+                    System.out.println("How many items did the employee sell ");
                     TotalItems=Double.parseDouble(sc.nextLine());
                 } 
             catch (NumberFormatException exc)
@@ -65,7 +65,7 @@ public class CommissionEmployee extends Employee{
     
         do {
             try {
-                   System.out.println("Please enter the price of unit sold ");
+                   System.out.println("Please enter the price per unit sold.");
                    Price=Double.parseDouble(sc.nextLine());
                 } 
             catch (NumberFormatException exc) 
@@ -109,8 +109,6 @@ Commission = CommissionRate * GrossSales;
         System.out.println("Employee Name: " + name);
         System.out.println("Hours Worked: " + hours);
         System.out.println("Pay Rate: " + payRate);
-		System.out.println("Items Sold: " + TotalItems);
-		System.out.println("PPI: " + Price);
 		System.out.println("Comission Earned: "+ getCommissionAmount());
         System.out.println("Gross Pay: " + f.format(getGrossPay()));
         System.out.println("Tax Rate: " + taxRate);
